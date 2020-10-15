@@ -1,0 +1,31 @@
+ALGORITHM Omouri
+VAR
+    sentence:char;
+    countChar:INTEGER:=0;
+    countWords:INTEGER:=1;
+    countVowels:INTEGER:=0;
+    i:INTEGER;
+BEGIN
+    Read(sentence)
+    REPEAT
+        countChar:=countChar+1;
+    UNTIL (sentence[countChar]=".")
+    Write(countChar)
+    FOR i FROM 0 TO countChar STEP 1  DO
+        SWITCH (sentence[i]) DO
+            case "a": countVowels:=countVowels+1;
+            case "e": countVowels:=countVowels+1;
+            case "i": countVowels:=countVowels+1;
+            case "o": countVowels:=countVowels+1;
+            case "u": countVowels:=countVowels+1;
+            case "y": countVowels:=countVowels+1;
+            default countVowels:=countVowels;
+    END_FOR
+    Write(countVowels)
+    FOR i FROM 0 TO countChar STEP 1  DO
+        IF (sentence[i]=" ") THEN
+            countWords:=countWords+1;
+        END_IF
+    END_FOR
+    Write(countWords)
+END
